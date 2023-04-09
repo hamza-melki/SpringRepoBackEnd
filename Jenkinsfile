@@ -16,21 +16,13 @@ pipeline {
 
       }
       
-      stage('Checkout GIT') {
-         steps {
-             echo 'Pulling..';
-              git branch :'Master',
-               url : 'https://github.com/hamza-melki/SpringRepoBackEnd/'
-
-
-
- // To run Maven on a Windows agent, use
- // bat "mvn -Dmaven.test.failure.ignore=true clean package"
- }
-
-
- }
-       stage('Build') {
+      
+     stage('Clean') {
+            steps {
+                sh 'mvn clean --file *.pom'
+            }
+        }
+      stage('Build') {
             steps {
                 // Checkout your source code from version control system
                 // ...
@@ -40,11 +32,6 @@ pipeline {
                 
             }
        }
-     stage('Clean') {
-            steps {
-                sh 'mvn clean --file *.pom'
-            }
-        }
      stage('Compile') {
             steps {
                 sh 'mvn  compile'
