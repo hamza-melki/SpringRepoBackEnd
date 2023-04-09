@@ -28,7 +28,7 @@ pipeline {
                 // ...
                echo 'Build..';
                 // Invoke Maven build
-                    sh 'mvn clean install'
+               
                 
             }
        }
