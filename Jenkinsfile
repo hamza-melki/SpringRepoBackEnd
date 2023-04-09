@@ -19,7 +19,7 @@ pipeline {
       stage('Checkout GIT') {
          steps {
              echo 'Pulling..';
-              git branch :'Master',
+              git branch :'Rahma_branch',
                url : 'https://github.com/hamza-melki/SpringRepoBackEnd.git'
 
 
