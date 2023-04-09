@@ -20,7 +20,7 @@ pipeline {
          steps {
              echo 'Pulling..';
               git branch :'Master',
-               url : 'https://github.com/hamza-melki/SpringRepoBackEnd/tpAchatProject'
+               url : 'https://github.com/hamza-melki/SpringRepoBackEnd/tree/Master/tpAchatProject'
 
 
 
