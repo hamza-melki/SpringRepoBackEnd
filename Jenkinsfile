@@ -19,8 +19,8 @@ pipeline {
       stage('Checkout GIT') {
          steps {
              echo 'Pulling..';
-              git branch :'Rahma_branch',
-               url : 'https://github.com/hamza-melki/SpringRepoBackEnd.git'
+              git branch :'Master',
+               url : 'https://github.com/hamza-melki/SpringRepoBackEnd/tpAchatProject'
 
 
 
