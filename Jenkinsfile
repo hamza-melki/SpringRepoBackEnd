@@ -32,12 +32,12 @@ pipeline {
  }
      stage('Clean') {
             steps {
-                sh 'mvn - f "https://github.com/hamza-melki/SpringRepoBackEnd/blob/Rahma_branch/tpAchatProject/pom.xml" clean'
+                sh 'mvn - f clean'
             }
         }
      stage('Compile') {
             steps {
-                sh 'mvn - f "https://github.com/hamza-melki/SpringRepoBackEnd/blob/Rahma_branch/tpAchatProject/pom.xml" compile'
+                sh 'mvn - f compile'
 '
             }
         }
