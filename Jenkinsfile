@@ -19,7 +19,7 @@ pipeline {
       
      stage('Clean') {
             steps {
-                sh 'mvn clean --file *.pom'
+                sh 'mvn clean'
             }
         }
       stage('Build') {
