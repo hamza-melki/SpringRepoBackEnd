@@ -37,7 +37,7 @@ pipeline {
         }
      stage('Compile') {
             steps {
-                sh 'mvn - f "https://github.com/hamza-melki/SpringRepoBackEnd/blob/Rahma_branch/tpAchatProject/pom.xml" compile
+                sh 'mvn - f "https://github.com/hamza-melki/SpringRepoBackEnd/blob/Rahma_branch/tpAchatProject/pom.xml" compile'
 '
             }
         }
