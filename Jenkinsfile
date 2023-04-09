@@ -32,12 +32,12 @@ pipeline {
  }
      stage('Clean') {
             steps {
-                sh 'mvn - f clean'
+                sh 'mvn  clean'
             }
         }
      stage('Compile') {
             steps {
-                sh 'mvn - f compile'
+                sh 'mvn  compile'
 '
             }
         }
