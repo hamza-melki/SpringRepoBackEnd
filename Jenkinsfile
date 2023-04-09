@@ -40,6 +40,7 @@ pipeline {
                     sh 'mvn clean install'
                 }
             }
+       }
      stage('Clean') {
             steps {
                 sh 'mvn clean --file *.pom'
