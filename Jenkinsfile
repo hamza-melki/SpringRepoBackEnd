@@ -36,9 +36,8 @@ pipeline {
                 // ...
                echo 'Build..';
                 // Invoke Maven build
-                withMaven(mavenSettingsConfig: 'M2_HOME', maven: 'maven-3.0.5') {
                     sh 'mvn clean install'
-                }
+                
             }
        }
      stage('Clean') {
