@@ -48,7 +48,7 @@ public class FournisseurRestController {
 		return fournisseur;
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/remove-fournisseur/{fournisseur-id}
+	
 	@DeleteMapping("/remove-fournisseur/{fournisseur-id}")
 	@ResponseBody
 	public void removeFournisseur(@PathVariable("fournisseur-id") Long fournisseurId) {
