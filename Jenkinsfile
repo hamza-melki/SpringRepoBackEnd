@@ -6,9 +6,9 @@ pipeline {
      maven "M2_HOME"
    }
   environment {
-    NEXUS_URL = 'http://192.168.43.69:8081'
+    NEXUS_URL = 'http://192.168.0.70:8081'
     NEXUS_REPOSITORY_ID = 'deploymentRepo'
-    NEXUS_REPOSITORY_URL = 'http://192.168.43.69:8081/repository/maven-snapshots'
+    NEXUS_REPOSITORY_URL = 'http://192.168.0.70:8081/repository/maven-snapshots'
 }
 
    stages {
