@@ -27,7 +27,7 @@ public class StockServiceImplTest {
 		stockService.deleteStock(savedStock.getIdStock());
 		
 	} 
-	
+	//test
 	@Test
 	public void testAddStockOptimized() {
 
