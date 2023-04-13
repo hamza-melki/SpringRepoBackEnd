@@ -53,7 +53,9 @@ pipeline {
       steps {
        
           // Build and deploy Maven project
-          sh 'mvn clean deploy'
+          
+                            sh "mvn deploy -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -DskipTests=true -DaltDeploymentRepository=my-nexus-repo::default::http://192.168.43.69:8081/repository/maven-snapshots/ -Dusername=${admin} -Dpassword=${Rahma123}"
+
         }
       }
 }
