@@ -8,7 +8,7 @@ pipeline {
   environment {
     NEXUS_URL = 'http://192.168.43.69:8081'
     NEXUS_REPOSITORY_ID = 'deploymentRepo'
-    NEXUS_REPOSITORY_URL = 'http://192.168.43.69:8081/repository/maven-central'
+    NEXUS_REPOSITORY_URL = 'http://192.168.43.69:8081/repository/maven-public'
 }
 
    stages {
