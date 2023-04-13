@@ -49,6 +49,13 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Rahma123'
             }
         }
+      stage('Build and Deploy') {
+      steps {
+       
+          // Build and deploy Maven project
+          sh 'mvn clean deploy'
+        }
+      }
 }
 }
 
