@@ -5,7 +5,7 @@ FROM openjdk:11
 WORKDIR /app
 
 # Copier le fichier JAR de l'application Spring dans le conteneur
-COPY target/tpachatproject.jar .
+COPY target/*.jar .
 
 # Exposer le port sur lequel l'application Spring sera en écoute
 EXPOSE 5000
