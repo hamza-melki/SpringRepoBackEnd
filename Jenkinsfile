@@ -88,6 +88,19 @@ pipeline {
                 }
             }
         }
+     
+        stage('Déploiement avec Docker Compose') {
+            steps {
+              
+                sh'docker-compose up -d'
+            }
+        }
+
+        stage('Nettoyage') {
+            steps {
+                 sh' docker-compose down '
+            }
+        }
 }
 }
 
