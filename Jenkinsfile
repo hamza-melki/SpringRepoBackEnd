@@ -59,7 +59,6 @@ pipeline {
        
           // Build and deploy Maven project
           echo 'Deploy..';
-         sh "mvn deploy -DaltDeploymentRepository=${NEXUS_REPOSITORY_ID}::default::${NEXUS_REPOSITORY_URL} -s /usr/share/maven/conf/settings.xml"
 
          
 
