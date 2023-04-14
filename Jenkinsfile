@@ -73,18 +73,18 @@ pipeline {
       stage('Build docker image'){
             steps{
                 script{
-                    sh 'sudo -t docker build -t rahmabenghorbel/tpachatproject .'
+                    sh 'docker build  rahmabenghorbel/tpachatproject .'
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub_mdp', variable: 'dockerhubpwd')]) {
-                   sh 'sudo -t docker login -u rahmabenghorbel -p ${dockerhubpwd}'
+                   withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u rahmabenghorbel -p ${dockerhubpwd}'
 
 }
-                   sh 'sudo -t docker push rahmabenghorbel/tpachatproject'
+                   sh ' docker push rahmabenghorbel/tpachatproject'
                 }
             }
         }
