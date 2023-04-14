@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/tpachatproject.jar .
 
 # Exposer le port sur lequel l'application Spring sera en écoute
-EXPOSE 8080
+EXPOSE 5000
 
 # Démarrer l'application Spring
 CMD ["java", "-jar", "tpachatproject.jar"]
