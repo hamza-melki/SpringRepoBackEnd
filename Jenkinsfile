@@ -73,7 +73,7 @@ pipeline {
       stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build  rahmabenghorbel/tpachatproject .'
+                    sh 'docker build -t rahmabenghorbel/tpachatproject .'
                 }
             }
         }
