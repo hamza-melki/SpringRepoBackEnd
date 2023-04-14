@@ -1,4 +1,4 @@
 FROM openjdk:11
-add target/backend-tpachat-image.jar backend-tpachat-image.jar
-WORKDIR /app
-CMD ["java", "-jar", "/backend-tpachat-image.jar"]
+EXPOSE 8080
+ADD target/backend-tpachat-image-1.0.jar backend-tpachat-image-1.0.jar
+CMD ["java", "-jar", "/backend-tpachat-image-1.0.jar"]
