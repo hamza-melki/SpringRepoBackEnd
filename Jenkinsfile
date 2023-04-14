@@ -49,7 +49,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
- stage('Install sonarqube'){
+ stage('SonarQube'){
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Rahma123'
             }
@@ -63,6 +63,31 @@ pipeline {
 
         }
       }
+      stage('Test Unitaire'){
+            steps{
+                script{
+                    sh 'mvn test'
+                }
+            }
+        }
+      stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t rahmabenghorbel/tpAchatProject .'
+                }
+            }
+        }
+        stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u rahmabenghorbel -p ${dockerhubpwd}'
+
+}
+                   sh 'docker push rahmabenghorbel/tpAchatProject'
+                }
+            }
+        }
 }
 }
 
