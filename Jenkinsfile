@@ -59,7 +59,7 @@ pipeline {
        
           // Build and deploy Maven project
           echo 'Deploy..';
-            sh "mvn deploy -DaltDeploymentRepository=${NEXUS_REPOSITORY_ID}::default::${NEXUS_REPOSITORY_URL} -s /usr/share/maven/conf/settings.xml"
+         
 
         }
       }
@@ -73,18 +73,18 @@ pipeline {
       stage('Build docker image'){
             steps{
                 script{
-                    sh 'sudo docker build -t rahmabenghorbel/tpachatproject .'
+                    sh 'sudo -t docker build -t rahmabenghorbel/tpachatproject .'
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhubpwd')]) {
-                   sh 'sudo docker login -u rahmabenghorbel -p ${dockerhubpwd}'
+                   withCredentials([string(credentialsId: 'dockerhub_mdp', variable: 'dockerhubpwd')]) {
+                   sh 'sudo -t docker login -u rahmabenghorbel -p ${dockerhubpwd}'
 
 }
-                   sh 'sudo docker push rahmabenghorbel/tpachatproject'
+                   sh 'sudo -t docker push rahmabenghorbel/tpachatproject'
                 }
             }
         }
