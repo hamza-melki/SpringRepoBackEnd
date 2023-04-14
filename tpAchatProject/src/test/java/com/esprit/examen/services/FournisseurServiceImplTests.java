@@ -37,8 +37,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 /**
  * Unit tests for FournisseurServiceImpl.
  */
-@ExtendWith(SpringExtension.class)
-@SpringBootTest
+
 public class FournisseurServiceImplTests {
 
     @InjectMocks
