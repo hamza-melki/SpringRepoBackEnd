@@ -73,7 +73,7 @@ pipeline {
       stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t rahmabenghorbel/tpachatproject .'
+                    sh 'sudo docker build -t rahmabenghorbel/tpachatproject .'
                 }
             }
         }
@@ -81,10 +81,10 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u rahmabenghorbel -p ${dockerhubpwd}'
+                   sh 'sudo docker login -u rahmabenghorbel -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push rahmabenghorbel/tpachatproject'
+                   sh 'sudo docker push rahmabenghorbel/tpachatproject'
                 }
             }
         }
