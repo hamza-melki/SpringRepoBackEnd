@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: tpachat
+      MYSQL_USER: tpachatuser
+      MYSQL_PASSWORD: tpachatpassword
+    volumes:
+      - db-data:/var/lib/mysql
+
+  web:
+    image: rahmabenghorbel/tpachatproject
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
