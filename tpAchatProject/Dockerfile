@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8
 EXPOSE 8080
-ADD target/backend-tpachat-image-1.0.jar backend-tpachat-image-1.0.jar
-CMD ["java", "-jar", "/backend-tpachat-image-1.0.jar"]
+ADD target/tpAchatProject-1.0.jar tpAchatProject-1.0.jar
+ENTRYPOINT ["java","-jar","/tpAchatProject-1.0.jar"]
