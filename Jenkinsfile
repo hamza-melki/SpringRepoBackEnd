@@ -84,7 +84,7 @@ pipeline {
                    sh 'docker login -u rahmabenghorbel -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push rahmabenghorbel/tpAchatProject'
+                   sh 'docker push rahmabenghorbel/tpachatproject'
                 }
             }
         }
