@@ -103,11 +103,7 @@ pipeline {
                  sh' docker-compose ps '
             }
         }
-      stage('Nettoyage') {
-            steps {
-                 sh' docker-compose down '
-            }
-        }
+     
 }
 }
 
