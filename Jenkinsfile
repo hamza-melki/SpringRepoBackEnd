@@ -104,22 +104,10 @@ pipeline {
          stage('Email notification')
                 {
                     steps{
-                    def buildId = ${env.BUILD_ID}
-                    def buildTimestamp = ${env.BUILD_TIMESTAMP}
-                    def buildStatus = ${env.BUILD_STATUS}
-                    def gitCommit = ${env.GIT_COMMIT}
-                    def gitBranch = ${env.GIT_BRANCH}
-
         mail bcc: '', body: '''Dear Team,
 
         This is an automated email to provide you with the latest execution report from the Jenkins pipeline for the Springboot app project. The pipeline was executed successfully with the following details:
 
-        Build ID: ${BUILD_ID}
-        Execution Time: ${BUILD_TIMESTAMP, format="yyyy-MM-dd HH:mm:ss"}
-        Build Status: ${BUILD_STATUS}
-        Commit Hash: ${GIT_COMMIT}
-        Branch: ${GIT_BRANCH}
-        Environment: ${ENVIRONMENT}
 
         Pipeline Stages:
 
@@ -129,8 +117,7 @@ pipeline {
         SonarQube: Static code analysis was performed using SonarQube.
         Nexus: Artifacts were uploaded to Nexus repository.
         Docker: Docker image was built and pushed to Docker registry.
-
-
+        Build Artifacts:
 
         Please review the pipeline execution report and take necessary actions, if any. If you encounter any issues or need further assistance, please do not hesitate to reach out to us.
 
