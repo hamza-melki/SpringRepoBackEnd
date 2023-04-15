@@ -124,6 +124,7 @@ if (optionalOperateur.isPresent()) {
     // Perform other operations with operateur
 		operateurRepository.save(operateur);
 	}
+	}
 
 	@Override
 	public float pourcentageRecouvrement(Date startDate, Date endDate) {
