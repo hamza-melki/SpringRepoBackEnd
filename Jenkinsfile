@@ -24,7 +24,16 @@ pipeline {
                 sh ' cd tpAchatProject/ && mvn clean install' // Executes Maven clean build
             }
         }
-
+        stage('Test'){
+            steps{
+                sh 'cd tpAchatProject/ && mvn test'
+            }
+            post{
+                always{
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
 
         stage('SonarQube Analysis') {
               tools {
@@ -91,18 +100,7 @@ pipeline {
                     sh 'docker-compose up -d'
                 }
             }
-
         }
-         stage('Test'){
-                    steps{
-                        sh 'cd tpAchatProject/ && mvn test'
-                    }
-                    post{
-                        always{
-                            junit '**/target/surefire-reports/TEST-*.xml'
-                        }
-                    }
-                }
          stage('Email notification')
                 {
                     steps {
