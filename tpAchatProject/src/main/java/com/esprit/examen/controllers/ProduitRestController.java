@@ -38,8 +38,8 @@ public class ProduitRestController {
 	// http://localhost:8089/SpringMVC/produit/add-produit/{idCategorieProduit}/{idStock}
 	@PostMapping("/add-produit")
 	@ResponseBody
-	public Produit addProduit(@RequestBody Produit p) {
-		return produitService.addProduit(p);
+	public void addProduit(@RequestBody Produit p) {
+		 produitService.addProduit(p);
 	}
 
 	// http://localhost:8089/SpringMVC/produit/remove-produit/{produit-id}
