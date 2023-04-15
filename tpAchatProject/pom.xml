@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>tpachatproject</artifactId>
-	<version>1.11</version>
+	<version>1.12</version>
 	<name>tpachatproject</name>
 	<description>tpachatproject</description>
 	<properties>
