@@ -104,11 +104,11 @@ pipeline {
          stage('Email notification')
                 {
                     steps{
-                    def buildId = env.BUILD_ID
-                    def buildTimestamp = env.BUILD_TIMESTAMP
-                    def buildStatus = env.BUILD_STATUS
-                    def gitCommit = env.GIT_COMMIT
-                    def gitBranch = env.GIT_BRANCH
+                    def buildId = ${env.BUILD_ID}
+                    def buildTimestamp = ${env.BUILD_TIMESTAMP}
+                    def buildStatus = ${env.BUILD_STATUS}
+                    def gitCommit = ${env.GIT_COMMIT}
+                    def gitBranch = ${env.GIT_BRANCH}
 
         mail bcc: '', body: '''Dear Team,
 
