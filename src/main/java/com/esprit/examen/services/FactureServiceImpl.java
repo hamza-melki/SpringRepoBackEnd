@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,9 +109,10 @@ public class FactureServiceImpl implements IFactureService {
  Fournisseur fournisseur = new Fournisseur();
     if (optionalFournisseur.isPresent()) {
      fournisseur = optionalFournisseur.get();
-    List<Facture> factures = (List<Facture>) fournisseur.getFactures();
     // Perform operations with factures
        } 
+		    List<Facture> factures = (List<Facture>) fournisseur.getFactures();
+return factures; 
 	}
 
 	@Override
@@ -127,7 +127,6 @@ if (optionalOperateur.isPresent()) {
 		operateurRepository.save(operateur);
 	}
 	}
-
 	@Override
 	public float pourcentageRecouvrement(Date startDate, Date endDate) {
 		float totalFacturesEntreDeuxDates = factureRepository.getTotalFacturesEntreDeuxDates(startDate,endDate);
