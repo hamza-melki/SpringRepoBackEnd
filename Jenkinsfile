@@ -126,7 +126,7 @@ pipeline {
         Best regards,''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Execution Report - Springboot app', to: 'hamza.belatra@esprit.tn'        }
 
 
-            }
+             }
 
     }
 
