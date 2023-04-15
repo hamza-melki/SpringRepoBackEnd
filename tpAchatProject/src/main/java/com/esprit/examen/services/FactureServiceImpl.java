@@ -109,9 +109,10 @@ public class FactureServiceImpl implements IFactureService {
  Fournisseur fournisseur = new Fournisseur();
     if (optionalFournisseur.isPresent()) {
      fournisseur = optionalFournisseur.get();
-    List<Facture> factures = (List<Facture>) fournisseur.getFactures();
     // Perform operations with factures
        } 
+		    List<Facture> factures = (List<Facture>) fournisseur.getFactures();
+return factures; 
 	}
 
 	@Override
