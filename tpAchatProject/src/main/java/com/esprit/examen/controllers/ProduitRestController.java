@@ -24,9 +24,10 @@ public class ProduitRestController {
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
 	public List<Produit> getProduits() {
-		return  produitService.retrieveAllProduits();;
+		List<Produit> list = produitService.retrieveAllProduits();
+		return list;
 	}
-/*
+
 	// http://localhost:8089/SpringMVC/produit/retrieve-produit/8
 	@GetMapping("/retrieve-produit/{produit-id}")
 	@ResponseBody
@@ -34,14 +35,15 @@ public class ProduitRestController {
 		return produitService.retrieveProduit(produitId);
 	}
 
-	 Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
+	/* Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
 	// http://localhost:8089/SpringMVC/produit/add-produit/{idCategorieProduit}/{idStock}
-	/*@PostMapping("/add-produit")
+	@PostMapping("/add-produit")
 	@ResponseBody
-	public void addProduit(@RequestBody Produit p) {
-		 produitService.addProduit(p);
+	public Produit addProduit(@RequestBody Produit p) {
+		Produit produit = produitService.addProduit(p);
+		return produit;
 	}
-*/
+
 	// http://localhost:8089/SpringMVC/produit/remove-produit/{produit-id}
 	@DeleteMapping("/remove-produit/{produit-id}")
 	@ResponseBody
