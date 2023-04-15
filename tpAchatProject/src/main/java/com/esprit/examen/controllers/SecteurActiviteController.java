@@ -22,7 +22,7 @@ public class SecteurActiviteController {
 	@GetMapping("/retrieve-all-secteurActivite")
 	@ResponseBody
 	public List<SecteurActivite> getSecteurActivite() {
-		return secteurActiviteService.retrieveAllSecteurActivite();;
+		return secteurActiviteService.retrieveAllSecteurActivite();
 	}
 
 	// http://localhost:8089/SpringMVC/secteurActivite/retrieve-secteurActivite/8
@@ -36,7 +36,7 @@ public class SecteurActiviteController {
 	@PostMapping("/add-secteurActivite")
 	@ResponseBody
 	public SecteurActivite addSecteurActivite(@RequestBody SecteurActivite sa) {
-		return  secteurActiviteService.addSecteurActivite(sa);;
+		return  secteurActiviteService.addSecteurActivite(sa);
 	}
 
 	// http://localhost:8089/SpringMVC/secteurActivite/remove-secteurActivite/{secteurActivite-id}
