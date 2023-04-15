@@ -103,7 +103,7 @@ pipeline {
         }
          stage('Email notification')
                 {
-                    steps{
+                    steps {
         mail bcc: '', body: '''Dear Team,
 
         This is an automated email to provide you with the latest execution report from the Jenkins pipeline for the Springboot app project. The pipeline was executed successfully with the following details:
