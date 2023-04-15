@@ -59,7 +59,12 @@ public class FactureServiceImpl implements IFactureService {
 		float montantRemise = 0;
 		for (DetailFacture detail : detailsFacture) {
 			//Récuperer le produit 
-			Produit produit = produitRepository.findById(detail.getProduit().getIdProduit()).get();
+		Optional<Produit> optionalProduit = produitRepository.findById(detail.getProduit().getIdProduit());
+                                Produit produit = new Produit();
+                   if (optionalProduit.isPresent()) {
+                          produit = optionalProduit.get();
+                                 // Perform operations with produit
+                        }
 			//Calculer le montant total pour chaque détail Facture
 			float prixTotalDetail = detail.getQteCommandee() * produit.getPrix();
 			//Calculer le montant remise pour chaque détail Facture
@@ -99,15 +104,24 @@ public class FactureServiceImpl implements IFactureService {
 
 	@Override
 	public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
-		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
-		return (List<Facture>) fournisseur.getFactures();
+		Optional<Fournisseur> optionalFournisseur = fournisseurRepository.findById(idFournisseur);
+ Fournisseur fournisseur = new Fournisseur();
+    if (optionalFournisseur.isPresent()) {
+     fournisseur = optionalFournisseur.get();
+    List<Facture> factures = (List<Facture>) fournisseur.getFactures();
+    // Perform operations with factures
+       } 
 	}
 
 	@Override
 	public void assignOperateurToFacture(Long idOperateur, Long idFacture) {
 		Facture facture = factureRepository.findById(idFacture).orElse(null);
-		Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
-		operateur.getFactures().add(facture);
+		Optional<Operateur> optionalOperateur = operateurRepository.findById(idOperateur);
+Operateur operateur = new Operateur();
+if (optionalOperateur.isPresent()) {
+     operateur = optionalOperateur.get();
+    operateur.getFactures().add(facture);
+    // Perform other operations with operateur
 		operateurRepository.save(operateur);
 	}
 
