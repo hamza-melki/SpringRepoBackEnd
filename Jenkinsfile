@@ -91,17 +91,18 @@ pipeline {
                     sh 'docker-compose up -d'
                 }
             }
-             stage('Test'){
-                        steps{
-                            sh 'cd tpAchatProject/ && mvn test'
-                        }
-                        post{
-                            always{
-                                junit '**/target/surefire-reports/TEST-*.xml'
-                            }
+
+        }
+         stage('Test'){
+                    steps{
+                        sh 'cd tpAchatProject/ && mvn test'
+                    }
+                    post{
+                        always{
+                            junit '**/target/surefire-reports/TEST-*.xml'
                         }
                     }
-        }
+                }
          stage('Email notification')
                 {
                     steps {
