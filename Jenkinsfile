@@ -27,16 +27,7 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-      stage('Build') {
-            steps {
-                // Checkout your source code from version control system
-                // ...
-               echo 'Build..';
-                // Invoke Maven build
-               sh 'mvn clean install'
-                
-            }
-       }
+    
      stage('Compile') {
             steps {
                 sh 'mvn  compile'
@@ -49,7 +40,24 @@ pipeline {
                 sh 'mvn package'
             }
         }
- stage('SonarQube'){
+   stage('Build') {
+            steps {
+                // Checkout your source code from version control system
+                // ...
+               echo 'Build..';
+                // Invoke Maven build
+               sh 'mvn clean install'
+                
+            }
+       }
+      stage('Test Unitaire'){
+            steps{
+                script{
+                    sh 'mvn test'
+                }
+            }
+        }
+     stage('SonarQube'){
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Rahma123'
             }
@@ -60,17 +68,12 @@ pipeline {
           // Build and deploy Maven project
           echo 'Deploy..';
 
+sh "mvn deploy -DaltDeploymentRepository=${NEXUS_REPOSITORY_ID}::default::${NEXUS_REPOSITORY_URL} -s /usr/share/maven/conf/settings.xml"
          
 
         }
       }
-      stage('Test Unitaire'){
-            steps{
-                script{
-                    sh 'mvn test'
-                }
-            }
-        }
+     
       stage('Build docker image'){
             steps{
                 script{
