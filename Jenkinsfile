@@ -55,7 +55,7 @@ pipeline {
    nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
-        nexusUrl: '192.168.1.21:8081',
+        nexusUrl: '192.168.1.20:8081',
         groupId: 'com.esprit.examen',
         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
         repository: 'Maven-Central-Repo',
@@ -104,7 +104,7 @@ pipeline {
          stage('Email notification')
                 {
                     steps {
-        mail bcc: '', body: '''Dear Team,
+        mail bcc: '', body: '''Dear Team ,
 
         This is an automated email to provide you with the latest execution report from the Jenkins pipeline for the Springboot app project. The pipeline was executed successfully with the following details:
 
